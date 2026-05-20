@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epsilon — Informatique & Solutions Digitales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;1,300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <!-- CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="loader-brand">EPSI<span>LON</span></div>
+        <div class="loader-bar">
+            <div class="loader-fill"></div>
+        </div>
+        <div class="loader-text">Initialisation du système...</div>
+    </div>
+
+    <!-- CANVAS BG -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- TOP ALERT -->
+    <div class="top-alert">
+        🚀 Livraison offerte à partir de 50 000 FCFA — Assistance 24h/24 — Installation à domicile disponible
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar-epsilon">
+        <div class="container-fluid d-flex align-items-center justify-content-between" style="height:70px;">
+            <a class="brand" href="#">Samba_<span>Diagana</span></a>
+            <ul class="nav-links d-none d-lg-flex">
+                <li><a href="#categories">Produits</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a href="#contact" class="btn-nav">Devis gratuit</a>
+                <button class="btn-nav d-lg-none border-0" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-grid-overlay"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-label">Solutions Informatiques Professionnelles</div>
+                    <h1>
+                        <span class="line-outline">TECH</span><br>
+                        <span class="line-accent">POWER</span><br>
+                        <span>SOLUTIONS</span>
+                    </h1>
+                    <p class="hero-sub">
+                        Matériels, logiciels, serveurs, maintenance — tout ce qu'il faut pour propulser votre entreprise
+                        vers le futur numérique.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#products" class="btn-primary-eps">
+                            <i class="fas fa-bolt"></i> Explorer les produits
+                        </a>
+                        <a href="#services" class="btn-secondary-eps">
+                            <i class="fas fa-headset"></i> Nos services
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-num"><span id="count1">0</span>+</div>
+                            <div class="stat-label">Produits</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num"><span id="count2">0</span>+</div>
+                            <div class="stat-label">Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num"><span id="count3">0</span>ans</div>
+                            <div class="stat-label">Expérience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-visual">
+                    <div class="hero-device">
+                        <div class="device-glow"></div>
+                        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg"
+                            style="width:100%;filter:drop-shadow(0 0 40px rgba(0,229,255,.3))">
+                            <!-- Monitor -->
+                            <rect x="80" y="60" width="340" height="230" rx="6" fill="#0d1424" stroke="#00e5ff"
+                                stroke-width="1.5" />
+                            <rect x="95" y="75" width="310" height="200" rx="3" fill="#070b14" />
+                            <!-- Screen Content Lines -->
+                            <rect x="115" y="95" width="180" height="8" rx="2" fill="#1a2a40" />
+                            <rect x="115" y="113" width="120" height="6" rx="2" fill="#0f1e30" />
+                            <rect x="115" y="130" width="260" height="1" fill="#1a2a40" />
+                            <rect x="115" y="145" width="80" height="30" rx="3" fill="#00e5ff" opacity=".15" />
+                            <rect x="205" y="145" width="80" height="30" rx="3" fill="#1a2a40" />
+                            <rect x="295" y="145" width="80" height="30" rx="3" fill="#1a2a40" />
+                            <rect x="115" y="190" width="260" height="6" rx="2" fill="#0f1e30" />
+                            <rect x="115" y="206" width="200" height="6" rx="2" fill="#0f1e30" />
+                            <rect x="115" y="222" width="240" height="6" rx="2" fill="#0f1e30" />
+                            <!-- Glowing cursor -->
+                            <circle cx="350" cy="200" r="4" fill="#00e5ff" opacity=".9">
+                                <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                            <!-- Stand -->
+                            <rect x="220" y="290" width="60" height="18" rx="2" fill="#0d1424" stroke="#1a2a40"
+                                stroke-width="1" />
+                            <rect x="180" y="305" width="140" height="8" rx="3" fill="#0d1424" stroke="#1a2a40"
+                                stroke-width="1" />
+                        </svg>
+
+                        <div class="floating-badge badge-1">
+                            <div class="badge-val">500+</div>
+                            <div style="font-size:.65rem;color:var(--text-dim);letter-spacing:1px;">PRODUITS</div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <div style="display:flex;align-items:center;gap:.5rem;">
+                                <div
+                                    style="width:8px;height:8px;background:#00e5ff;border-radius:50%;animation:pulse 1.5s infinite;">
+                                </div>
+                                <span style="font-size:.7rem;letter-spacing:1px;">Support en ligne</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS TICKER -->
+    <div class="ticker-section">
+        <div class="ticker-track" id="ticker">
+            <span class="ticker-item">Dell<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">HP<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Lenovo<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Cisco<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Microsoft<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Intel<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">AMD<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Samsung<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Asus<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Huawei<span class="ticker-dot">●</span></span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ticker-item">Dell<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">HP<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Lenovo<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Cisco<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Microsoft<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Intel<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">AMD<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Samsung<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Asus<span class="ticker-dot">●</span></span>
+            <span class="ticker-item">Huawei<span class="ticker-dot">●</span></span>
+        </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Catalogue</div>
+                <h2 class="section-title">Nos <span class="accent">Catégories</span></h2>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-laptop cat-icon"></i>
+                        <div class="cat-title">Laptops</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-desktop cat-icon"></i>
+                        <div class="cat-title">Desktops</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-server cat-icon"></i>
+                        <div class="cat-title">Serveurs</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-network-wired cat-icon"></i>
+                        <div class="cat-title">Réseau</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-print cat-icon"></i>
+                        <div class="cat-title">Périphériques</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <a href="#products" class="cat-card">
+                        <i class="fas fa-shield-halved cat-icon"></i>
+                        <div class="cat-title">Sécurité</div>
+                        <div class="cat-count">— produits</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header reveal d-flex align-items-end justify-content-between flex-wrap gap-3">
+                <div>
+                    <div class="section-tag">Boutique</div>
+                    <h2 class="section-title">Produits <span class="accent">Vedettes</span></h2>
+                </div>
+                <a href="#categories" class="btn-secondary-eps" style="font-size:.8rem;padding:.6rem 1.5rem;">
+                    Voir tout <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs reveal">
+                <button class="filter-tab active" onclick="filterProducts(this,'all')">Tout</button>
+                <button class="filter-tab" onclick="filterProducts(this,'laptop')">Laptops</button>
+                <button class="filter-tab" onclick="filterProducts(this,'desktop')">Desktops</button>
+                <button class="filter-tab" onclick="filterProducts(this,'server')">Serveurs</button>
+                <button class="filter-tab" onclick="filterProducts(this,'network')">Réseau</button>
+                <button class="filter-tab" onclick="filterProducts(this,'accessory')">Accessoires</button>
+            </div>
+
+            <div class="row g-4" id="products-grid">
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 1 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="laptop">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                       <!--  <img src="image/IMG1.webp" alt="Nom produit" width="100%" height="200" style="object-fit:cover;border-radius:6px;"> -->   
+                            <div class="product-placeholder">
+                                <i class="fas fa-laptop"></i>
+                                <span>Image produit</span>
+                            </div>
+                            <div class="product-badge">Promo</div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Laptop</div>
+                            <div class="product-name">Nom du produit 1</div>
+                            <div class="product-desc">Description courte du produit — marque, processeur, RAM,
+                                stockage...</div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                000 000 <small>FCFA</small>
+                                <span class="old">000 000</span>
+                            </div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 2 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="desktop">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-placeholder">
+                                <i class="fas fa-desktop"></i>
+                                <span>Image produit</span>
+                            </div>
+                            <div class="product-badge new">Nouveau</div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Desktop</div>
+                            <div class="product-name">Nom du produit 2</div>
+                            <div class="product-desc">Description courte du produit — marque, processeur, RAM,
+                                stockage...</div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">000 000 <small>FCFA</small></div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 3 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="server">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-placeholder">
+                                <i class="fas fa-server"></i>
+                                <span>Image produit</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Serveur</div>
+                            <div class="product-name">Nom du produit 3</div>
+                            <div class="product-desc">Description courte du produit — type, CPU, RAM, stockage RAID...
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">000 000 <small>FCFA</small></div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 4 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="network">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-placeholder">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Image produit</span>
+                            </div>
+                            <div class="product-badge">Promo</div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Réseau</div>
+                            <div class="product-name">Nom du produit 4</div>
+                            <div class="product-desc">Description courte — switch, routeur, point d'accès, ports...
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">000 000 <small>FCFA</small></div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 5 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="accessory">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-placeholder">
+                                <i class="fas fa-keyboard"></i>
+                                <span>Image produit</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Accessoire</div>
+                            <div class="product-name">Nom du produit 5</div>
+                            <div class="product-desc">Description courte — type, connectivité, compatibilité...</div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">000 000 <small>FCFA</small></div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!--   EMPLACEMENT PRODUIT 6 — À remplir                          -->
+                <!-- ============================================================ -->
+                <div class="col-sm-6 col-lg-4 reveal product-item" data-cat="laptop">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Image produit</span>
+                            </div>
+                            <div class="product-badge new">Nouveau</div>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Laptop</div>
+                            <div class="product-name">Nom du produit 6</div>
+                            <div class="product-desc">Description courte du produit — marque, processeur, RAM,
+                                stockage...</div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">000 000 <small>FCFA</small></div>
+                            <button class="btn-add-cart" title="Ajouter au panier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /products-grid -->
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0 reveal">
+                    <div class="section-tag">Prestations</div>
+                    <h2 class="section-title mb-4">Nos <span class="accent">Services</span></h2>
+                    <p style="color:var(--text-dim);line-height:1.9;font-size:.9rem;">
+                        Au-delà de la vente, Epsilon vous accompagne dans l'intégration, la maintenance et la
+                        sécurisation de votre système d'information.
+                    </p>
+                    <a href="#contact" class="btn-primary-eps mt-4 d-inline-flex">
+                        <i class="fas fa-paper-plane"></i> Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-2">
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
+                                <div>
+                                    <div class="service-title">Maintenance Matérielle</div>
+                                    <div class="service-desc">Diagnostic, réparation et remplacement de composants pour
+                                        PC, laptops et serveurs. Contrat de maintenance disponible.</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+                                <div>
+                                    <div class="service-title">Maintenance Logicielle</div>
+                                    <div class="service-desc">Installation, mise à jour, configuration et dépannage de
+                                        vos logiciels, systèmes d'exploitation et suites bureautiques.</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-server"></i></div>
+                                <div>
+                                    <div class="service-title">Infogérance Serveurs</div>
+                                    <div class="service-desc">Installation, administration et supervision de vos
+                                        serveurs physiques et virtuels. Disponibilité maximale garantie.</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-wifi"></i></div>
+                                <div>
+                                    <div class="service-title">Infrastructure Réseau</div>
+                                    <div class="service-desc">Conception, déploiement et sécurisation de votre réseau
+                                        LAN/WAN, câblage structuré et Wi-Fi entreprise.</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-cloud"></i></div>
+                                <div>
+                                    <div class="service-title">Solutions Cloud</div>
+                                    <div class="service-desc">Migration, déploiement et gestion de vos environnements
+                                        cloud (hébergement, sauvegarde, applications SaaS).</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="service-item">
+                                <div class="service-icon-wrap"><i class="fas fa-shield-virus"></i></div>
+                                <div>
+                                    <div class="service-title">Cybersécurité</div>
+                                    <div class="service-desc">Audit de sécurité, déploiement d'antivirus, pare-feu et
+                                        solutions de sauvegarde pour protéger vos données.</div>
+                                    <a href="#contact" class="service-cta">En savoir plus <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-section" id="about">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-tag justify-content-center">Pourquoi Epsilon</div>
+                <h2 class="section-title">Ce qui nous <span class="accent">différencie</span></h2>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-6 col-md-3 reveal">
+                    <div class="why-card">
+                        <div class="why-num">01</div>
+                        <div class="why-icon"><i class="fas fa-award"></i></div>
+                        <div class="why-title">Qualité Certifiée</div>
+                        <div class="why-text">Produits originaux issus des plus grandes marques mondiales, avec garantie
+                            constructeur.</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal">
+                    <div class="why-card">
+                        <div class="why-num">02</div>
+                        <div class="why-icon"><i class="fas fa-headset"></i></div>
+                        <div class="why-title">Support 24/7</div>
+                        <div class="why-text">Une équipe technique disponible à tout moment pour répondre à vos urgences
+                            informatiques.</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal">
+                    <div class="why-card">
+                        <div class="why-num">03</div>
+                        <div class="why-icon"><i class="fas fa-truck-fast"></i></div>
+                        <div class="why-title">Livraison Rapide</div>
+                        <div class="why-text">Livraison rapide dans toute la région, avec suivi en temps réel de votre
+                            commande.</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal">
+                    <div class="why-card">
+                        <div class="why-num">04</div>
+                        <div class="why-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                        <div class="why-title">Meilleurs Prix</div>
+                        <div class="why-text">Prix compétitifs, facilités de paiement et remises pour les commandes
+                            professionnelles en volume.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5">
+                        <div class="section-tag">Contact</div>
+                        <h2>Parlons de votre <span style="color:var(--primary)">projet</span></h2>
+                        <p>Obtenez un devis personnalisé, renseignez-vous sur un produit ou planifiez une intervention
+                            technique. Notre équipe vous répond sous 24h.</p>
+                        <div class="mt-4 d-flex flex-column gap-3">
+                            <div class="d-flex align-items-center gap-3"
+                                style="color:var(--text-dim);font-size:.85rem;">
+                                <div class="why-icon"
+                                    style="margin:0;min-width:44px;width:44px;height:44px;font-size:1rem;">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                Dakar, Sénégal — Parcelles Assainies Unité 19
+                            </div>
+                            <div class="d-flex align-items-center gap-3"
+                                style="color:var(--text-dim);font-size:.85rem;">
+                                <div class="why-icon"
+                                    style="margin:0;min-width:44px;width:44px;height:44px;font-size:1rem;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                +221 76 026 45 67
+                            </div>
+                            <div class="d-flex align-items-center gap-3"
+                                style="color:var(--text-dim);font-size:.85rem;">
+                                <div class="why-icon"
+                                    style="margin:0;min-width:44px;width:44px;height:44px;font-size:1rem;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                samba.diagana.01@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="contact-form" onsubmit="handleForm(event)">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Votre nom complet" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Adresse email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Téléphone">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Type de demande</option>
+                                        <option>Achat de matériel</option>
+                                        <option>Maintenance logicielle</option>
+                                        <option>Infogérance serveur</option>
+                                        <option>Infrastructure réseau</option>
+                                        <option>Cybersécurité</option>
+                                        <option>Autre</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="4"
+                                        placeholder="Décrivez votre besoin ou projet..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-primary-eps w-100 justify-content-center">
+                                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="form-success" style="display:none;" class="text-center mt-3">
+                            <div
+                                style="color:var(--primary);font-family:'Rajdhani',sans-serif;font-size:1.2rem;letter-spacing:2px;">
+                                <i class="fas fa-check-circle me-2"></i> Message envoyé avec succès !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-5 mb-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">Samba_<span>Diagana</span></div>
+                    <div class="footer-tagline">INFORMATIQUE & SOLUTIONS DIGITALES</div>
+                    <p style="color:var(--text-dim);font-size:.83rem;line-height:1.8;margin-top:1rem;">
+                        Votre partenaire technologique de confiance. Matériels, logiciels, maintenance et services
+                        informatiques pour particuliers et entreprises.
+                    </p>
+                    <div class="social-links">
+                        <a class="social-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-link" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-link" href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">Produits</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Desktops</a></li>
+                        <li><a href="#">Serveurs</a></li>
+                        <li><a href="#">Réseau</a></li>
+                        <li><a href="#">Périphériques</a></li>
+                        <li><a href="#">Sécurité</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Infogérance</a></li>
+                        <li><a href="#">Cloud</a></li>
+                        <li><a href="#">Cybersécurité</a></li>
+                        <li><a href="#">Réseau</a></li>
+                        <li><a href="#">Formation</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">Société</div>
+                    <ul class="footer-links">
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Notre équipe</a></li>
+                        <li><a href="#">Partenaires</a></li>
+                        <li><a href="#">Actualités</a></li>
+                        <li><a href="#">Carrières</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">Support</div>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Suivi commande</a></li>
+                        <li><a href="#">Garantie</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Ticket SAV</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Epsilon. Tous droits réservés.</span>
+                <span>Conçu pour la performance</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    </body>
+</html>
